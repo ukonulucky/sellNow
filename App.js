@@ -1,38 +1,32 @@
-import React, { useState , useCallback} from "react"
+import React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "./screen/Home"
 import About from "./screen/About"
-import { FontAwesome5 } from "@expo/vector-icons"
+
 
 // the tap navigator is used to navigate between different screens in the app
-const Tap = createBottomTabNavigator()
+const Drawer =createDrawerNavigator()
 
  export default function App() {
    return (
      <NavigationContainer>
-       <Tap.Navigator initialRouteName="About" screenOptions={({ route }) => ({
-         tabBarIcon: ({ focused, size, color}) => {
-           let iconName
-           if (route.name === "About") {
-            
-             iconName = "twitter"
-             color = focused ? "purple" : "crimpson"
-             size = focused ? 30 : 20
-           } else if (route.name === "Home") {
-             
-             iconName = "youtube"
-             color = focused ? "purple" : "crimpson"
-             size = focused ? 30 : 20
-           } 
-           return <FontAwesome5 name={iconName} size={size} color={ color} />
-
-         }
-       })}>
-         <Tap.Screen name="Home" component={Home} />
-         <Tap.Screen name="About" component={About} />
-       </Tap.Navigator>
+       <Drawer.Navigator initialRouteName="Home"
+         screenOptions={{
+           headerTitleAlign: "center",
+           headerStyle: {
+             backgroundColor:"purple"
+           },
+           headerTintColor: "white",
+           headerTitleStyle: {
+             fontSize:20
+           }
+         }}
+         
+       >
+         <Drawer.Screen name="Home" component={Home} />
+         <Drawer.Screen name="About" component={About} />
+       </Drawer.Navigator>
      </NavigationContainer>
   )
 } 

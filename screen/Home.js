@@ -21,7 +21,7 @@ const navigation = useNavigation()
             {
               marginTop: StatusBar.currentHeight
             }
-            } onPress={() => navigation.navigate("Review", item)}>
+            } onPress={() => navigation.openDrawer()}>
             <Text>{item.title}</Text> 
         </TouchableOpacity>
         )
