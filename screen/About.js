@@ -5,7 +5,9 @@ function About() {
     const navigation = useNavigation()
   return (
       <View style={ styles.about}>
-          <Text>
+          <Text style={{
+              fontFamily:"quickSand"
+          }}>
               this is the About page
           </Text>
           <Button title="Go Home" onPress={() => {
